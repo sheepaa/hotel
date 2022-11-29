@@ -21,7 +21,6 @@ Vue.use(VueRouter);
 Vue.use(VueWechatTitle);
 Vue.use(feather);
 Vue.use(VueAxios, axios);
-
 // axios.defaults.baseURL='/api'
 
 new Vue({
@@ -29,3 +28,9 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+(Vue.prototype.$datePickerOptions = {
+  disabledDate(date) {
+    return date && date.valueOf() > Date.now()
+  },
+})

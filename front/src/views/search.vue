@@ -33,7 +33,7 @@
         <el-row>
           <el-col :span="12">
             <el-row>
-              <el-col :span="24" v-for="(room, index) in showlist1" :key="index" :offset="0">
+              <el-col :span="24" v-for="(room, index) in searchSet" :key="index" :offset="0">
                 <el-card shadow="never" :body-style="{ padding: '0px' }">
                   <div @click="toDetail(room.id)">
                     <img :src="room.type.coverImage" class="image">
@@ -94,8 +94,7 @@
           leavedate: '',
           currentDate: new Date()
         },
-        showlist1: [],
-        showlist2: [],
+        
         searchSet: [],
         len: '',
       }
@@ -122,14 +121,15 @@
       },
       updateWaterFall() {
         this.searchSet = this.$store.state.searchSet;
+        console.log(this.searchSet)
         this.len = this.searchSet.length;
-        for (let i in this.searchSet) {
-          if (i <= this.len / 2) {
-            this.showlist1.push(this.searchSet[i]);
-          } else {
-            this.showlist2.push(this.searchSet[i]);
-          }
-        }
+        // for (let i in this.searchSet) {
+        //   if (i <= this.len / 2) {
+        //     this.showlist1.push(this.searchSet[i]);
+        //   } else {
+        //     this.showlist2.push(this.searchSet[i]);
+        //   }
+        // }
         // console.log(this.showlist1, this.showlist2);
         this.form.indate = this.$store.state.searchTime.inTime;
         this.form.leavedate = this.$store.state.searchTime.leaveTime;

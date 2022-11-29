@@ -23,9 +23,7 @@
           <p>
             <router-link to="/register">注册账号</router-link>
           </p>
-<!--          <p>
-            <div @click="nologinBtn">不登录，随便看看</div>
-          </p> -->
+          
         </div>
       </el-main>
     </el-container>
